@@ -1,30 +1,47 @@
 const S = 8
 
-function O(numbers){
+function filterNumbers(numbers){
     try {
+        if (!Array.isArray(numbers)) {
+            throw TypeError("Wrong type found, expected number array");
+        }
+        if (numbers.length > 100) {
+            throw RangeError("The array is too long, max length allow is 100 numbers");
+        }
+
+        const validateNumber = (num) => num < S
         let result = []
-        for (let index = numbers.length; index >= 0; index--) {
+
+        for (let index = (numbers.length - 1); index >= 0; index--) {
             let number = numbers[index]
-            if (number < S) {
+            if (!(typeof number === "number")) {
+                throw TypeError("Wrong type found, expected number");
+            }
+
+            if (validateNumber(number)) {
                 result.push(number)
-            }else if(number >= 10){
-                let second_digit=(number%10)
-                let firts_digit=(number-second_digit)/10
-                if (firts_digit < S && second_digit < S) {
-                    result.push(number)
-                }else if(firts_digit < S){
-                    result.push(firts_digit)
-                }else if (second_digit < S) {
-                    result.push(second_digit)
+            }else {
+                const num_to_string = number+""
+                const digits_num = num_to_string.split("")
+                
+                let validated_num_string = ""
+                for (const digit of digits_num) {
+                    if (validateNumber(Number(digit))) {
+                        validated_num_string += digit
+                    }
+                }
+                if(!(validated_num_string === "")){
+                    const validated_num = Number(validated_num_string)
+                    result.push(validated_num)
                 }
             }
         }
-       return result
+        return result
         
     } catch (error) {
-        console.log(error)
+        return error.message
     }
 
 }
 
-module.exports = O;
+module.exports = filterNumbers;
