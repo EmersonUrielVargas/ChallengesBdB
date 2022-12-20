@@ -1,5 +1,5 @@
 
-function minQuantityChange({monedas}){
+function minQuantityNotChange({monedas}){
     try {
         if (!Array.isArray(monedas)) {
             throw TypeError("Wrong type found, expected number array");
@@ -93,4 +93,4 @@ function minQuantityChange({monedas}){
 
 }
 
-module.exports = minQuantityChange;
+module.exports = minQuantityNotChange;
