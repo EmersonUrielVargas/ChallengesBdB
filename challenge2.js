@@ -1,5 +1,13 @@
 const S = 8
 
+/** S = cualquier número del 1 al 9
+ * Escribe una función que tome una matriz no vacía de enteros ordenados en orden ascendente y 
+ * devuelva una nueva matriz de la misma longitud con los cuadrados de los enteros originales 
+ * también ordenados en orden ascendente. 
+ * Si el número de salida está fuera del rango [0, SS] (para S=6 el rango será [0, 66]),
+ * lo borrará del array de salida. Por favor, no utilizar la ordenación integrada del lenguaje
+ */
+
 function squareNumbersFilterOrderAsc({array}){
     try {
         if (!Array.isArray(array)) {
@@ -47,7 +55,5 @@ function squareNumbersFilterOrderAsc({array}){
     }
 
 }
-
-console.log(squareNumbersFilterOrderAsc({"array":[-1,-2,0,1,2,3,4,5,6, 87, 66, 7, 9, 10]}))
 
 module.exports = squareNumbersFilterOrderAsc;
