@@ -1,5 +1,14 @@
 const S = 8
 
+
+/** S = cualquier número del 1 al 9
+ * Teniendo una lista de n números con dígitos en el rango [0, S], donde n <= 100, 
+ * cambiar todas las posiciones de la lista en O(n) tiempo.
+ * Si el número de entrada contiene un dígito mayor o igual que S, borrará el dígito del número,
+ * por ejemplo con S=6, 61 se convierte en 1, y 6 se borrará de la matriz. El resultado se imprimirá en 
+ * la consola/terminal. Por favor, no utilizar la ordenación integrada del lenguaje. 
+ */
+
 function filterNumbers(numbers){
     try {
         if (!Array.isArray(numbers)) {

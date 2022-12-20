@@ -1,4 +1,10 @@
 
+/**
+ * Dada una matriz de enteros positivos que representan los valores de las monedas en su posesión, 
+ * escriba una función que devuelva la cantidad mínima de cambio (la suma mínima de dinero) que
+ * NO PUEDE dar a cambio. Las monedas dadas pueden tener cualquier valor entero positivo y no
+ * son necesariamente únicas (es decir, puede tener varias monedas del mismo valor)
+ */
 function minQuantityNotChange({monedas}){
     try {
         if (!Array.isArray(monedas)) {
