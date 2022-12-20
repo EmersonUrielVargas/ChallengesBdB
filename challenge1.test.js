@@ -31,5 +31,11 @@ describe('challenge1', () =>{
         const result = challenge1([89,93,1,2,5,6,4])
         expect(expected).toEqual(result)
     })
+
+    test('should print [45] if they receive [888485]', () => { 
+        const expected = [45]
+        const result = challenge1([888485])
+        expect(expected).toEqual(result)
+    })
 })
 
