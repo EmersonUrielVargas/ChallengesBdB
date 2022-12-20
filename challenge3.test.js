@@ -32,6 +32,12 @@ describe('challenge3', () =>{
         expect(expected).toEqual(result)
     })
 
+    test('should print 24 if they receive {"monedas":[1,2,4,9,7,1234, 25, 45,23560]}', () => { 
+        const expected = 24
+        const result = challenge3({"monedas":[1,2,4,9,7]})
+        expect(expected).toEqual(result)
+    })
+
     test('should print 6 if they receive {"monedas":[1,1,1,1,1]}', () => { 
         const expected = 6
         const result = challenge3({"monedas":[1,1,1,1,1]})
