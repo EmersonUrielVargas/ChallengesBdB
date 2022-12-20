@@ -48,6 +48,4 @@ function squareNumbersFilterOrderAsc({array}){
 
 }
 
-console.log(squareNumbersFilterOrderAsc({"array":[-1,-2,0,1,2,3,4,5,6, 87, 66, 7, 9, 10]}))
-
 module.exports = squareNumbersFilterOrderAsc;

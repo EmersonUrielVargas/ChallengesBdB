@@ -2,55 +2,91 @@ const challenge3 = require("./challenge3")
 
 describe('challenge3', () =>{
 
-    test('should print [1,4,9,25,36,64] if they receive {"monedas":[1,2,3,5,6,8,10,25]}', () => { 
-        const expected = [1,4,9,25,36,64]
-        const result = challenge3({"monedas":[1,2,3,5,6,8,10,25]})
+    test('should print 8 if they receive {"monedas":[1,2,4]}', () => { 
+        const expected = 8
+        const result = challenge3({"monedas":[1,2,4]})
         expect(expected).toEqual(result)
     })
 
-    test('should print [] if they receive {"monedas":[10,25]}', () => { 
-        const expected = []
+    test('should print 8 if they receive {"monedas":[1,2,4,9]}', () => { 
+        const expected = 8
+        const result = challenge3({"monedas":[1,2,4,9]})
+        expect(expected).toEqual(result)
+    })
+
+    test('should print 0 if they receive {"monedas":[10,25]}', () => { 
+        const expected = 1
         const result = challenge3({"monedas":[10,25]})
         expect(expected).toEqual(result)
     })
 
-    test('should print [] if they receive {"monedas":[25]}', () => { 
-        const expected = []
-        const result = challenge3({"monedas":[25]})
+    test('should print 0 if they receive {"monedas":[2]}', () => { 
+        const expected = 1
+        const result = challenge3({"monedas":[2]})
         expect(expected).toEqual(result)
     })
 
-    test('should print [1,4] if they receive {"monedas":[-2,-1]}', () => { 
-        const expected = [1,4]
-        const result = challenge3({"monedas":[-2,-1]})
+    test('should print 24 if they receive {"monedas":[1,2,4,9,7]}', () => { 
+        const expected = 24
+        const result = challenge3({"monedas":[1,2,4,9,7]})
         expect(expected).toEqual(result)
     })
 
-    test('should print [0,16,16,25,25,49,49] if they receive {"monedas":[-7,-5,-4,0,4,5,7]}', () => { 
-        const expected = [0,16,16,25,25,49,49]
-        const result = challenge3({"monedas":[-7,-5,-4,0,4,5,7]})
+    test('should print 6 if they receive {"monedas":[1,1,1,1,1]}', () => { 
+        const expected = 6
+        const result = challenge3({"monedas":[1,1,1,1,1]})
         expect(expected).toEqual(result)
     })
 
-    test('should print [] if they receive {"monedas":[-10,10]}', () => { 
-        const expected = []
+    test('should print 8 if they receive {"monedas":[1,2,1,2,1]}', () => { 
+        const expected = 8
+        const result = challenge3({"monedas":[1,2,1,2,1]})
+        expect(expected).toEqual(result)
+    })
+
+    test('should print 8 if they receive {"monedas":[32,1,2,1,2,1]}', () => { 
+        const expected = 8
+        const result = challenge3({"monedas":[32,1,2,1,2,1]})
+        expect(expected).toEqual(result)
+    })
+
+    test('should print 14 if they receive {"monedas":[32,1,2,6,1,2,1]}', () => { 
+        const expected = 14
+        const result = challenge3({"monedas":[32,1,2,6,1,2,1]})
+        expect(expected).toEqual(result)
+    })
+
+    test('should print 20 if they receive {"monedas":[5,7,1,1,2,3,22]}', () => { 
+        const expected = 20
+        const result = challenge3({"monedas":[5,7,1,1,2,3,22]})
+        expect(expected).toEqual(result)
+    })
+
+    test('should print error if they receive a data with negative value', () => { 
+        const expected = "The data in array is not a positive integer"
         const result = challenge3({"monedas":[-10,10]})
         expect(expected).toEqual(result)
     })
 
+    test('should print error if they receive a data with value 0', () => { 
+        const expected = "The data in array is not a positive integer"
+        const result = challenge3({"monedas":[10,0]})
+        expect(expected).toEqual(result)
+    })
+
     test('should print Array typeError if the argument is not a monedas', () => { 
-        const expected = "Wrong type found, expected number monedas"
+        const expected = "Wrong type found, expected number array"
         const result = challenge3("Texto")
         expect(expected).toEqual(result)
     })
 
     test('should print rangeError if the monedas is empty', () => { 
-        const expected = "The monedas is empty"
+        const expected = "The array is empty"
         const result = challenge3({"monedas":[]})
         expect(expected).toEqual(result)
     })
 
-    test('should print number typeError if one data of monedas  is not a number', () => { 
+    test('should print number typeError if one data of array is not a number', () => { 
         const expected = "Wrong type found, expected number"
         const result = challenge3({"monedas":[3, 8, 54, 89, "45"]})
         expect(expected).toEqual(result)
