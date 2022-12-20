@@ -1,6 +1,6 @@
 const S = 8
 
-function O(numbers){
+function filterNumbers(numbers){
     try {
         if (!Array.isArray(numbers)) {
             throw TypeError("Wrong type found, expected number array");
@@ -14,6 +14,10 @@ function O(numbers){
 
         for (let index = (numbers.length - 1); index >= 0; index--) {
             let number = numbers[index]
+            if (!(typeof number === "number")) {
+                throw TypeError("Wrong type found, expected number");
+            }
+
             if (validateNumber(number)) {
                 result.push(number)
             }else {
@@ -35,11 +39,9 @@ function O(numbers){
         return result
         
     } catch (error) {
-        console.log(error)
+        return error.message
     }
 
 }
 
-console.log(O([88, 96, 3,8,5]))
-
-module.exports = O;
+module.exports = filterNumbers;

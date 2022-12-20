@@ -37,5 +37,17 @@ describe('challenge1', () =>{
         const result = challenge1([888485])
         expect(expected).toEqual(result)
     })
+
+    test('should print Array typeError if the argument is not a array', () => { 
+        const expected = "Wrong type found, expected number array"
+        const result = challenge1("Texto")
+        expect(expected).toEqual(result)
+    })
+
+    test('should print number typeError if one data of array  is not a number', () => { 
+        const expected = "Wrong type found, expected number"
+        const result = challenge1([3, 8, 54, 89, "45"])
+        expect(expected).toEqual(result)
+    })
 })
 
